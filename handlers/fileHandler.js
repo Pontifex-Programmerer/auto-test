@@ -15,6 +15,16 @@ const getSubmissionFilePaths = ()=>{
     return absolutePaths;
 }
 
+const getReportFilenames = () => {
+    const fileNames = fs.readdirSync(REPORT_PATH);
+    return fileNames;
+}
+
+const getReportFilePaths = () => {
+    const fileNames = getReportFileNames();
+    const paths = fileNames.map(fileName => path.join(REPORT_PATH,fileName));
+    return paths;
+}
 const writeReportJson = (reportCard) => {
     if(reportCard?.name !== 'undefined'){
         const fileName = path.join(REPORT_PATH, `${reportCard.name}.json`);
@@ -22,9 +32,9 @@ const writeReportJson = (reportCard) => {
         reportCard = JSON.stringify(reportCard);
         fs.writeFileSync(fileName, reportCard, {encoding:"utf-8"});
     }
-   
 }
 module.exports={
     getSubmissionFilePaths,
-    writeReportJson
+    writeReportJson,
+    getReportFilenames
 }

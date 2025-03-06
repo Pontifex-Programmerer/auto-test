@@ -1,0 +1,14 @@
+<%-include('./partials/head') %>
+<section id="index-description">
+    <h1>Index</h1>
+</section>
+<% if(typeof names !== 'undefined' && Array.isArray(names) && names.length > 0) {%>
+    <section id="namelinks" class="centered">
+        <ul class="name-links">
+            <% for(name of names) { %>
+                <li><a href="/name/<%=name%>"><%=name%></a></li>
+            <% } %>
+        </ul>
+    </section>
+<% } %>
+<%-include('./partials/foot') %>

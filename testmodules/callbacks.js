@@ -103,9 +103,9 @@ function testTask13(submissionModule) {
             try {
                 submissionModule.applyToEach(testArray, "not a function");
                 task13Report.statements.push("Test 2 - passed: Error handling implemented.");
+                task13Report.score += 2;
             } catch (error) {
                 task13Report.statements.push("Test 2 - failed: Function did not handle invalid callbacks.");
-                task13Report.score += 2;
             }
 
         } catch (error) {

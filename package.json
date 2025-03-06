@@ -7,8 +7,15 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "jest"
+    "test": "",
+    "lin-test": "clear && node app.js",
+    "win-test": "cls && node app.js"
   },
   "author": "Geir Hilmersen",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2"
+  }
 }
