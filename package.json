@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "",
-    "lin-test": "clear && node app.js",
-    "win-test": "cls && node app.js"
+    "lin-test": "clear && npx -exec nodemon server.js",
+    "win-test": "cls && npx -exec nodemon server.js"
   },
   "author": "Geir Hilmersen",
   "license": "ISC",

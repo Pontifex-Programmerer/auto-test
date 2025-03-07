@@ -7,9 +7,18 @@ const index = (req,res) => {
 }
 
 const namedReport = (req,res)=>{
-    reportCard=null;
-    console.log(res.params.name)
-    res.render('named-report', {reportCard});
+    let reportCard=null;
+    const name = req.params.name;
+    reportCard = fh.getReport(name);
+    console.log(reportCard)
+    if(reportCard){
+        reportCard = JSON.parse(reportCard);
+        res.render('named-report', {reportCard});
+    } else {
+        console.error('Tried accessing a file that did not exist');
+        res.render('named-report',{reportCard,name});
+    }
+    console.log('reportcard', reportCard)
 }
 
 module.exports={

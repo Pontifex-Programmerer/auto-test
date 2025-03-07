@@ -25,10 +25,21 @@ const getReportFilePaths = () => {
     const paths = fileNames.map(fileName => path.join(REPORT_PATH,fileName));
     return paths;
 }
+
+const getReport = (name) => {
+    let reportJson = null;
+    const fileName = `${name}.json`;
+    const reportPath = path.join(REPORT_PATH, fileName);
+    
+    if(fs.existsSync(reportPath)){
+        reportJson = fs.readFileSync(reportPath, {encoding: 'utf-8'});
+    }
+    return reportJson;
+}
+
 const writeReportJson = (reportCard) => {
     if(reportCard?.name !== 'undefined'){
         const fileName = path.join(REPORT_PATH, `${reportCard.name}.json`);
-        console.info('Writing file', fileName)
         reportCard = JSON.stringify(reportCard);
         fs.writeFileSync(fileName, reportCard, {encoding:"utf-8"});
     }
@@ -36,5 +47,6 @@ const writeReportJson = (reportCard) => {
 module.exports={
     getSubmissionFilePaths,
     writeReportJson,
-    getReportFilenames
+    getReportFilenames,
+    getReport
 }

@@ -1,3 +1,19 @@
 <%-include('./partials/head') %>
-<h1>Named report</h1>
+<% if(reportCard !== null) { %>
+    <section class="reportCard">
+        <h1 class="name"><%=reportCard.name%></h1>
+        <% for(task in reportCard.tasks) { %>
+        <div class="task">
+           <% for( statement of reportCard.tasks[task].statements) {%>
+            <span class="statement"><%=statement%></span>
+            <% } %>
+        </div>
+        <% } %>
+    </section>
+<% } else { %>
+    <section class="notfound">
+        <h1 class="name"><%=name%></h1>
+        <p> No report found for this student!</p>
+    </section>
+<% } %>
 <%-include('./partials/foot') %>
