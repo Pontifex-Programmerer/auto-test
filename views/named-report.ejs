@@ -4,11 +4,18 @@
         <h1 class="name"><%=reportCard.name%></h1>
         <% for(task in reportCard.tasks) { %>
         <div class="task">
-           <% for( statement of reportCard.tasks[task].statements) {%>
-            <span class="statement"><%=statement%></span>
-            <% } %>
+            <h2><%=task%></h2>
+            <p class="score">Score: <%=reportCard.tasks[task].score%></p>
+            <ul>
+                <h3>Test results:</h3>
+                <% for( statement of reportCard.tasks[task].statements) {%>
+                  <li><span class="statement"><%=statement%></span></li>
+                <% } %>
+            </ul>
         </div>
         <% } %>
+        <h2>Score:</h2>
+        <h2 class="final-score"><%=reportCard.score%></h2>
     </section>
 <% } else { %>
     <section class="notfound">
